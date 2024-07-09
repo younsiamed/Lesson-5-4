@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <vector>
+#include <utility>
 
 template<typename T>
 class Table {
@@ -17,7 +18,7 @@ public:
     }
 
     std::pair<int, int> Size() const {
-        return { data.size(), data[0].size() };
+        return { static_cast<int>(data.size()), static_cast<int>(data[0].size()) };
     }
 
 private:
@@ -31,7 +32,7 @@ int main() {
     std::cout << test[0][0] << std::endl;
 
     auto size = test.Size();
-    std::cout << "Строки: " << size.first << ", Столбы: " << size.second << std::endl;
+    std::cout << "Rows: " << size.first << ", Columns: " << size.second << std::endl;
 
     return 0;
 }
